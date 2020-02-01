@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>菜单的展开和收缩</title>
+		<style>
+			body{
+				font: 16px "microsoft yahei",sans-serif;
+				/* 字体:雅黑,非衬线字体 */
+			}
+			ul{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				text-decoration: none;
+				/* 去掉下划线 */
+			}
+			.nav-list{
+				width: 220px;
+				border-bottom: 1px solid #ccc;
+			}
+			.nav-list h3{
+				position: relative;
+				margin: 0;
+				padding: 10px;
+				font-size: 26px;
+				line-height: 20px;
+				font-weight: normal;
+				color: #fff;
+				background-color: #333;
+				border-top: 1px solid #ccc;
+				cursor: pointer;
+			}
+			.nav-list h3:hover{
+				background-color: #222;
+			}
+			.nav-list h3 span{
+				position: absolute;
+				right: 20px;
+				top: 14px;
+				width: 12px;
+				height: 12px;
+				background: url(img/off.png) no-repeat;
+			}
+			.nav-list h3.open span{
+				background: url(img/open.png) no-repeat;
+			}
+			.nav-list ul{
+				display: none;
+			}
+			.nav-list li a{
+				display: block;
+				padding: 10px 20px;
+				background-color: #f5f5f5;
+				border: 1px solid #ccc;
+				border-bottom: none;
+				color: #333;
+				font-size: 14px;
+			}
+			.nav-list li a:hover{
+				background-color: #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="nav-list">
+			<h3>选择器<span></span></h3>
+			<ul>
+				<li><a href="#">基本选择器</a></li>
+				<li><a href="#">层级选择器</a></li>
+				<li><a href="#">过滤选择器</a></li>
+				<li><a href="#">属性选择器</a></li>
+				<li><a href="#">内容选择器</a></li>
+				<li><a href="#">子元素选择器</a></li>
+				<li><a href="#">可见性选择器</a></li>
+				<li><a href="#">表单选择器</a></li>
+				<li><a href="#">表单对象选择器</a></li>
+			</ul>
+			
+			<h3>筛选<span></span></h3>
+			<ul>
+				<li><a href="#">过滤</a></li>
+				<li><a href="#">查找</a></li>
+				<li><a href="#">关联</a></li>
+				<li><a href="#">DOM操作</a></li>
+			</ul>
+			
+			<h3>样式<span></span></h3>
+			<ul>
+				<li><a href="#">CSS操作</a></li>
+				<li><a href="#">位置</a></li>
+				<li><a href="#">尺寸</a></li>
+			</ul>
+			
+			<h3>属性<span></span></h3>
+			<ul>
+				<li><a href="#">属性操作</a></li>
+				<li><a href="#">CSS类</a></li>
+				<li><a href="#">代码</a></li>
+				<li><a href="#">文本</a></li>
+				<li><a href="#">值</a></li>
+			</ul>
+		</div>
+		
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$(".nav-list h3").click(function(){
+					/* if ($(this).hasClass("open")) {
+						$(this).removeClass("open");
+					}else {
+						$(this).addClass("open");
+					} */
+					// $(this).toggleClass("open");
+					
+					// 判断ul是显示还是隐藏状态
+					// 如果是显示的,就隐藏
+					// 否则就显示
+					/* if ($(this).next("ul").is(":visible")) {
+						$(this).next("ul").slideUp();
+					} else {
+						// $(this).next("ul").show();
+						$(this).next("ul").slideDown();
+					} */
+					// $(this).next("ul").slideToggle();
+					
+					$(this).toggleClass("open").next("ul").slideToggle();
+					// toggleClass()方法返回的还是DOM对象
+				});
+			});
+		</script>
+		
+	</body>
+</html>
